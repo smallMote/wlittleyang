@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>段子</title>
+    <link rel="stylesheet" href="../../public/lib/bs/css/bootstrap.css" type="text/css">
+    <link rel="stylesheet" href="../../public/lib/bs/css/bootstrap-theme.css" type="text/css">
+    <link rel="stylesheet" href="../../public/lib/bs/css/font-awesome.min.css" type="text/css">
+    <script src="../../public/lib/jquery-3.2.1.js"></script>
+    <script src="../../public/lib/bs/js/bootstrap.js"></script>
+    <style type="text/css">
+        #text,#image,#video{
+            width: 45%;
+            margin: 15px auto;
+        }
+        .action{
+            margin: 15px auto;
+            display: flex;
+            justify-content: space-around;
+        }
+        @media screen and (max-width: 768px){
+            #text,#image,#video{
+                width: 85%;
+            }
+        }
+        @media screen and (max-width: 468px){
+            #text,#image,#video{
+                width: 95%;
+            }
+        }
+    </style>
+</head>
+<body id="">
+
+    <div id="dom">
+        {{duanziArr[0][0]}}
+        <ul id="myTab" class="nav nav-tabs">
+            <li class="">
+                <a href="#text" data-toggle="tab" class="text" @click="kindAction($event)">
+                    文字
+                </a>
+            </li>
+            <li class=" ">
+                <a href="#image" data-toggle="tab" class="image">
+                    图片
+                </a>
+            </li>
+            <li class="">
+                <a href="#video" data-toggle="tab" class="video">
+                    视频
+                </a>
+            </li>
+            <li class="all">
+                <a href="#all" data-toggle="tab" class="all">
+                    全部
+                </a>
+            </li>
+        </ul>
+        <div class="action">
+            <button id="next-btn" class="btn btn-primary" @click="pageAction($event)">下一页</button>
+            <button id="pre-btn" class="btn btn-primary" @click="pageAction($event)">上一页</button>
+            <button id="fir-btn" class="btn btn-primary" @click="pageAction($event)">首页</button>
+            <button id="lst-btn" class="btn btn-primary" @click="pageAction($event)">尾页</button>
+        </div>
+        <!--<div class="tab-pane fade" id="image">-->
+        <div>
+            <!--<video src="http://wvideo.spriteapp.cn/video/2018/0706/5b3e862eee48c_wpd.mp4" controls></video>-->
+            <div class="panel panel-primary" v-for="duanzi in duanziArr">
+                <div class="panel-heading">
+                    <h3 class="panel-title">{{duanzi.name}}</h3>
+                    <p>{{duanzi.passtime}}</p>
+                </div>
+                <div class="panel-body">
+                    <a href="javascript:void (0)" class="thumbnail">
+                        <img :src="duanzi.cdn_img" alt="">
+                    </a>
+                </div>
+                <div class="panel-footer">
+                    {{duanzi.text}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../../public/lib/vue.min.js"></script>
+    <script src="../../public/util/ajax-util.js"></script>
+    <script src="script/js.js"></script>
+</body>
+</html>

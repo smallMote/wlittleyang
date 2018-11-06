@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Book</title>
+    <link rel="stylesheet" href="../../public/lib/bs/css/bootstrap.css" type="text/css">
+    <link rel="stylesheet" href="../../public/lib/bs/css/bootstrap-theme.css" type="text/css">
+    <link rel="stylesheet" href="../../public/lib/bs/css/font-awesome.min.css" type="text/css">
+    <style type="text/css">
+        [class*="col-"]{
+            padding: 5px;
+        }
+        .thumbnail img{
+            height: 426px;
+        }
+    </style>
+</head>
+<body>
+
+    <!--图书列表容器-->
+    <div id="wallpaper">
+        <section class="container">
+            <div class="row" v-for="books in bookArr">
+                <div class="col-md-3 col-sm-6 col-xs-12" v-for="book in books">
+                    <div class="thumbnail">
+                        <img :src="book.img" alt="活着">
+                        <div class="caption">
+                            <h5>{{book.name}}</h5>
+                            <p style="color:#6B6B6B">{{book.author}} </p>
+                            <p>
+                                <a :href="book.baiduyun" class="btn btn-primary" role="button">
+                                    百度云
+                                </a>
+                                <a :href="book.douban" class="btn btn-info" role="button">
+                                    豆瓣
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="../../public/lib/vue.min.js"></script>
+    <script src="../../public/lib/jquery-3.2.1.js"></script>
+    <script src="../../public/lib/bs/js/bootstrap.js"></script>
+    <script src="script/book.js"></script>
+</body>
+</html>
