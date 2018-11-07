@@ -13,6 +13,12 @@
         .import-menu{
             margin: 50px auto;
         }
+        .list-group-item{
+            overflow: hidden;
+            white-space: nowrap;
+            -ms-text-overflow: ellipsis;
+            text-overflow: ellipsis;
+        }
     </style>
 </head>
 <body>
@@ -20,12 +26,20 @@
         <div class="list-group">
             <a class="list-group-item active" href="javascript:void (0)">导航</a>
             <a class="list-group-item" href="src/page/book/index.html">
-                Book
                 <span class="badge btn-primary">New</span>
+                <p>Book-如果你没看到有图书，那就是我服务器没有开</p>
             </a>
             <a class="list-group-item" href="src/page/photo/index.html">
                 Photo
                 <span class="badge btn-primary">New</span>
+            </a>
+            <a class="list-group-item" href="src/page/photo/2.0.html">
+                Photo2.0（摄影原图-查看原图时加载缓慢
+                <span class="badge btn-primary">New</span>
+            </a>
+            <a class="list-group-item" href="https://github.com/smallMote/wlittleyang">
+                项目GitHub源文件点这里
+                <span class="badge btn-danger">Hot</span>
             </a>
         </div>
     </div>
