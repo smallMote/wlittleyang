@@ -16,13 +16,3 @@ class PhotoBean {
 }
 let photo = new PhotoBean();
 photo.View();
-
-// $.ajax({
-//     url : 'https://api.unsplash.com/photos/',
-//     data : {client_id : '1504a87833d967b30639a845dbf7d0ca0fc4846af0760bc06e43fdce04515bfc'},
-//     // header : {'Client-ID' : '1504a87833d967b30639a845dbf7d0ca0fc4846af0760bc06e43fdce04515bfc' },
-//     type : 'get',
-//     success : function (data) {
-//         console.log(data);
-//     }
-// });
