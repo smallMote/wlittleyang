@@ -6,12 +6,138 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>图片2.0</title>
-    <link rel="shortcut icon" href="https://onedrive.gimhoy.com/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvcyFBbF9mWWFlZkxna0xpVFFQUmpudmhrZ09UOTB0.png" >
+    <!--<link rel="shortcut icon" href="https://onedrive.gimhoy.com/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvcyFBbF9mWWFlZkxna0xpVFFQUmpudmhrZ09UOTB0.png" >-->
+    <link rel="stylesheet" href="../../public/lib/bs/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../public/lib/bs/css/bootstrap-theme.min.css">
     <script src="../../public/lib/jquery-3.2.1.js"></script>
     <script src="../../public/lib/vue.min.js"></script>
     <script src="../../public/util/ajax-util.js"></script>
+    <script src="../../public/lib/bs/js/bootstrap.min.js"></script>
+    <style type="text/css">
+        #wallpaper{
+            margin: 15px auto;
+        }
+        .pic{
+            margin-bottom: 20px;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            display: inline-block;
+            padding: 15px;
+            box-shadow: 0 0 5px rgba(0,0,0,.5);
+            border: 1px solid #cccccc;
+            position: relative;
+            cursor: pointer;
+        }
+        .pic .raw{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            transition: all .4s ease;
+            font-size: 20px;
+            text-align: center;
+            color: white;
+            padding-top: 49%;
+            opacity: 0;
+            background: rgba(0,0,0,.5);
+            text-decoration: none;
+
+        }
+        .pic:hover .raw{
+            opacity: 1;
+        }
+        .pic img{
+            width: 100%;
+        }
+        .pic p{
+            padding: 5px 0;
+        }
+        .pic>a{
+            display: block;
+        }
+        .container{
+            padding: 5px;
+        }
+        @media screen and (min-width: 737px){
+            .col{
+                -webkit-column-count: 3;/*列数*/
+                -webkit-column-gap: 15px;/*间距*/
+                -moz-column-count: 3;/*列数*/
+                -moz-column-gap: 15px;/*间距*/
+                column-fill: auto;/*高度自适应*/
+                column-count: 3;
+                column-gap: 15px;
+            }
+        }
+        @media screen and (max-width: 736px){
+            .col{
+                -webkit-column-count: 2;/*列数*/
+                -webkit-column-gap: 15px;/*间距*/
+                -moz-column-count: 2;/*列数*/
+                -moz-column-gap: 15px;/*间距*/
+                column-fill: auto;/*高度自适应*/
+                column-count: 2;
+                column-gap: 15px;
+            }
+        }
+        @media screen and (max-width: 415px){
+            .col{
+                -webkit-column-count: 1 !important;/*列数*/
+                -webkit-column-gap: 15px;/*间距*/
+                -moz-column-count: 1;/*列数*/
+                -moz-column-gap: 15px;/*间距*/
+                column-fill: auto;/*高度自适应*/
+                column-count: 1 !important;
+                column-gap: 15px;
+            }
+        }
+        .search-box{
+            background: #cccccc;
+            height: 768px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .search-box>div{
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: center;
+        }
+        .search-box>div>.btn{
+            margin: auto 15px;
+        }
+        .search-box>div>input{
+            height: 46px;
+        }
+    </style>
 </head>
 <body>
+    <!--图片搜索Begin-->
+    <div id="search">
+        <section class="container search-box">
+            <div class="form-group form-inline">
+                <input type="text" class="form-control" placeholder="You can Input key world">
+                <button type="button" class="btn btn-primary btn-lg">Serch</button>
+            </div>
+        </section>
+    </div>
+    <!--图片搜索End-->
+
+    <!--图片显示Begin-->
+    <div id="wallpaper">
+        <div class="container">
+            <div class="col">
+                <div class="pic" v-for="img in IMG_DATA">
+                    <a :href="img.urls.raw" class="raw">查看原图</a>
+                    <img :src="img.urls.small" alt="">
+                    <p>{{img.description}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--图片显示End-->
 
     <script src="script/photo.js"></script>
 </body>
