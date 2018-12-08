@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style/animate.css">
+    <title>数据可视化</title>
+    <style type="text/css">
+        body{
+            background: linear-gradient(white , lightseagreen );
+        }
+        .box{
+            width: 100px;
+            height: 100px;
+            background: seagreen;
+            border-radius: 10px;
+            -webkit-box-shadow: 3px 3px 8px #333333;
+            -moz-box-shadow: 3px 3px 8px #333333;
+            box-shadow: 3px 3px 8px #333333;
+            color: white;
+            text-align: center;
+            line-height: 100px;
+            font-size: 12px;
+        }
+        #bounceOfIn,
+        #bounceOfOut,
+        #fadeOfIn,
+        #fadeOfOut,
+        #Flippers
+        {
+            display: flex;
+            flex-wrap: wrap;
+            border-bottom: 1px solid lightseagreen;
+        }
+        #bounceOfIn>div,
+        #bounceOfOut>div,
+        #fadeOfIn>div,
+        #fadeOfOut>div,
+        #Flippers>div
+        {
+            padding: 5px;
+            margin: 5px auto;
+
+        }
+        .actionBtn{
+            border-radius: 2px;
+            border: 1px solid seagreen;
+            padding: 5px;
+            margin: 10px auto;
+            display: block;
+            background: darkseagreen;
+            color: white;
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <section id="bounceOfIn">
+        <div>
+            <div class="box animated">bounceIn</div>
+            <button class="actionBtn" id="bounceIn">Begin</button>
+        </div>
+        <div>
+            <div class="box animated">bounceInUp</div>
+            <button class="actionBtn" id="bounceInUp">Begin</button>
+        </div>
+        <div>
+            <div class="box animated">bounceInDown</div>
+            <button class="actionBtn" id="bounceInDown">Begin</button>
+        </div>
+        <div>
+            <div class="box animated">bounceInRight</div>
+            <button class="actionBtn" id="bounceInRight">Begin</button>
+        </div>
+        <div>
+            <div class="box animated">bounceInLeft</div>
+            <button class="actionBtn" id="bounceInLeft">Begin</button>
+        </div>
+    </section>
+    <section id="bounceOfOut">
+        <div>
+            <div class="box animated ">bounceOut</div>
+            <button class="actionBtn" id="bounceOut">Begin</button>
+        </div>
+        <div>
+            <div class="box animated">bounceOutUp</div>
+            <button class="actionBtn" id="bounceOutUp">Begin</button>
+        </div>
+        <div>
+            <div class="box animated">bounceOutDown</div>
+            <button class="actionBtn" id="bounceOutDown">Begin</button>
+        </div>
+        <div>
+            <div class="box animated">bounceOutLeft</div>
+            <button class="actionBtn" id="bounceOutLeft">Begin</button>
+        </div>
+        <div>
+            <div class="box animated">bounceOutRight</div>
+            <button class="actionBtn" id="bounceOutRight">Begin</button>
+        </div>
+    </section>
+    <section id="fadeOfIn">
+        <div>
+            <div class="box animated ">flash</div>
+            <button class="actionBtn" id="flash">Begin</button>
+        </div>
+        <div>
+            <div class="box animated">bounceOutDown</div>
+            <button class="actionBtn" id="fadeInUp">Begin</button>
+        </div>
+        <div>
+            <div class="box animated">bounceOutLeft</div>
+            <button class="actionBtn" id="fadeInDown">Begin</button>
+        </div>
+        <div>
+            <div class="box animated">bounceOutRight</div>
+            <button class="actionBtn" id="fadeInLeft">Begin</button>
+        </div>
+        <div>
+            <div class="box animated">bounceOutUp</div>
+            <button class="actionBtn" id="fadeInRight">Begin</button>
+        </div>
+    </section>
+    <section id="fadeOfOut">
+        <div>
+            <div class="box animated"></div>
+            <button class="actionBtn" id="shake">Begin</button>
+        </div>
+        <div>
+            <div class="box animated">bounceOutDown</div>
+            <button class="actionBtn" id="fadeOutUp">Begin</button>
+        </div>
+        <div>
+            <div class="box animated">bounceOutLeft</div>
+            <button class="actionBtn" id="fadeOutDown">Begin</button>
+        </div>
+        <div>
+            <div class="box animated">bounceOutRight</div>
+            <button class="actionBtn" id="fadeOutLeft">Begin</button>
+        </div>
+        <div>
+            <div class="box animated">bounceOutUp</div>
+            <button class="actionBtn" id="fadeOutRight">Begin</button>
+        </div>
+    </section>
+    <section id="Flippers">
+        <div>
+            <div class="box animated"></div>
+            <button class="actionBtn" id="flip">Begin</button>
+        </div>
+        <div>
+            <div class="box animated">bounceOutDown</div>
+            <button class="actionBtn" id="flipInX">Begin</button>
+        </div>
+        <div>
+            <div class="box animated">bounceOutLeft</div>
+            <button class="actionBtn" id="flipInY">Begin</button>
+        </div>
+        <div>
+            <div class="box animated">bounceOutRight</div>
+            <button class="actionBtn" id="flipOutX">Begin</button>
+        </div>
+        <div>
+            <div class="box animated">bounceOutUp</div>
+            <button class="actionBtn" id="flipOutY">Begin</button>
+        </div>
+    </section>
+    <script>
+        let addAnimate = ()=>{
+            let $box = document.querySelectorAll('.box');
+            let oldClass = [];
+            let newClass = [];
+            let newClassStr = ' animated infinite ';
+            for (let i = 0; i < $box.length; i++) {
+                oldClass[i] = $box[i].classList;
+                newClass[i] = oldClass[i]+newClassStr;
+            }
+            let count = 0;
+            for (let box of $box) {
+                box.classList = newClass[count];
+                count++;
+            }
+            // $box[2].classList = 'box animated bounceIn infinite';
+        };
+        let PlayerAnimate = ()=>{
+            let $actionBtn = document.querySelectorAll('.actionBtn');
+            let count = 0;
+            let oldClassVal = " box animated ";
+            for (let btn of $actionBtn) {
+                //设置文本动画名称
+                {
+                    let classVal = btn.id;
+                    let preDom = btn.previousElementSibling;
+                    preDom.textContent = classVal;
+                }
+                btn.addEventListener('click' , (ev)=>{//执行动画
+                    let self = ev.target;
+                    let classVal = self.id;
+                    let preDom = self.previousElementSibling;
+                    preDom.classList = `${oldClassVal} ${classVal}`;
+                    console.log(oldClassVal);
+                    setTimeout(()=>{
+                        preDom.classList = oldClassVal;
+                    },2000);
+                    console.log();
+                    count++;
+                });
+            }
+        };
+        PlayerAnimate();
+    </script>
+</body>
+</html>

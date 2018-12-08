@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>MV</title>
+    <link rel="stylesheet" href="../../public/lib/bs/css/bootstrap.css" type="text/css">
+    <link rel="stylesheet" href="../../public/lib/bs/css/bootstrap-theme.css" type="text/css">
+    <link rel="stylesheet" href="../../public/lib/bs/css/font-awesome.min.css" type="text/css">
+    <!--<link rel="stylesheet" href="style/style.css">-->
+    <script src="../../public/lib/jquery-3.2.1.js"></script>
+    <script src="../../public/lib/bs/js/bootstrap.js"></script>
+    <script src="../../public/util/ajax-util.js"></script>
+    <style type="text/css">
+        #player-fill{
+            width: 720px;
+            margin: 15px auto;
+            overflow: hidden;
+            /*box-shadow: 5px 5px 5px #333333;*/
+        }
+        #player{
+            object-fit: fill;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .mvlist{
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header class="container">
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse"
+                            data-target="#example-navbar-collapse">
+                        <span class="sr-only">切换导航</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">网易MV</a>
+                </div>
+                <div class="collapse navbar-collapse" id="example-navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#">Top 10</a></li>
+                        <li><a href="#">热门推荐</a></li>
+                        <li class="dropdown">
+                            <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown">-->
+                                <!--Java <b class="caret"></b>-->
+                            <!--</a>-->
+                            <!--<ul class="dropdown-menu">-->
+                                <!--<li><a href="#">jmeter</a></li>-->
+                                <!--<li><a href="#">EJB</a></li>-->
+                                <!--<li><a href="#">Jasper Report</a></li>-->
+                                <!--<li class="divider"></li>-->
+                                <!--<li><a href="#">分离的链接</a></li>-->
+                                <!--<li class="divider"></li>-->
+                                <!--<li><a href="#">另一个分离的链接</a></li>-->
+                            <!--</ul>-->
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div id="player-fill">
+        <video src="" id="player" controls></video>
+    </div>
+    <div class="container" align="right">
+        <form action="#">
+            <label for="qxd"></label>
+            <select id="qxd"></select>
+        </form>
+    </div>
+    <div id="list" class="container">
+        <!--<div class="media">-->
+            <!--<div class="media-left">-->
+                <!--<img src="http://static.runoob.com/images/mix/img_avatar.png" class="media-object" style="width:60px">-->
+            <!--</div>-->
+            <!--<div class="media-body">-->
+                <!--<h4 class="media-heading">左对齐</h4>-->
+                <!--<p>这是一些示例文本。这是一些示例文本。这是一些示例文本。这是一些示例文本。这是一些示例文本。这是一些示例文本。这是一些示例文本。这是一些示例文本。</p>-->
+            <!--</div>-->
+        <!--</div>-->
+        <div class="row">
+            <div class="col-sm-3">
+
+            </div>
+        </div>
+    </div>
+    <script src="script/script.js"></script>
+</body>
+</html>
